@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>OWポイント選出ツール</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- OGP基本設定 -->
+  <meta property="og:title" content="OWポイント選出ツール" />
+  <meta property="og:description" content="Overwatch向け、ロールごとのポイント上限で自動的に最適なチームを選出します。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com" />
+  <meta property="og:image" content="https://your-domain.com/ogp-image.png" />
+  <meta property="og:site_name" content="OWポイントツール" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <header>
+    <h1>Overwatch2 ポイント計算ツール</h1>
+    <div class="description">
+      <p>Overwatch2のロールごとのポイント制限に基づいて、最適な5人チーム（タンク1名、DPS2名、サポート2名）を自動で選出します。</p>
+      <ul>
+        <li>1ロールのみの入力で計算できます。</li>
+        <li>5人以上入力可能です。（上限10人まで）</li>
+        <li>ポイント上限内のすべての組み合わせを表示します。</li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="controls">
+    <label>ポイント上限：<input id="maxPoints" value="30" type="number" /></label>
+    <label>最大人数：<input id="maxPlayers" value="5" type="number" /></label>
+    <button onclick="addRow()" style="background: #999;">＋ 行を追加</button>
+    <button onclick="generateTeams()" style="background: var(--accent); font-weight: bold;">組み合わせを生成</button>
+  </div>
+
+  <table id="playerTable">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>タンク</th>
+        <th>DPS</th>
+        <th>サポート</th>
+        <th style="width:40px;">削除</th>
+      </tr>
+    </thead>
+    <tbody id="playerTbody">
+    </tbody>
+  </table>
+  <pre id="output">入力後、計算を実行してください</pre>
+  <script src="script.js"></script>
+</body>
+</html>
